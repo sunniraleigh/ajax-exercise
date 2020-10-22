@@ -19,13 +19,14 @@ function showWeather(evt) {
     let url = "/weather.json";
     let formData = {"zipcode": $("#zipcode-field").val()};
 
-
-    // TODO: request weather with that URL and show the forecast in #weather-info
+    $.get(url, formData, (response) => {
+        alert(`temp: ${response.temp} forecast: ${response.forecast}`)
+    })
+    
+    // {temp: TEMP, forecast: FORECAST}
 }
 
 $("#weather-form").on('submit', showWeather);
-
-
 
 
 // PART 3: ORDER MELONS
